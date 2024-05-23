@@ -8,11 +8,6 @@ import jwt from "jsonwebtoken";
 const app = express();
 app.use(cors());
 
-// const corsOptions = {
-//   origin: 'https://ecocart-7.onrender.com',
-//   optionsSuccessStatus: 200,
-// };
-
 app.use(cors(corsOptions));
 app.use(express.json());
 dotenv.config();
@@ -57,23 +52,23 @@ const authenticateToken = (req, res, next) => {
 };
 
 // // CREATE API 
-// app.post("/getusers/", async (req, res) => {
-//   try {
-//     const { username, password, email, mobile, location, gender } = req.body;
-//     const existingUser = await userModel.findOne({ username });
-//     if (existingUser) {
-//       return res.status(400).json({ error: 'User already exists' });
-//     }
-//     const hashedPassword = await bcrypt.hash(password, 10);
-//     const newUser = new userModel({ username, password: hashedPassword, email, mobile, location, gender });
-//     const savedUser = await newUser.save();
-//     console.log("User added successfully");
-//     res.status(201).json(savedUser);
-//   } catch (error) {
-//     console.error("Error adding user:", error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// });
+app.post("/getusers/", async (req, res) => {
+  try {
+    const { username, password, email, mobile, location, gender } = req.body;
+    const existingUser = await userModel.findOne({ username });
+    if (existingUser) {
+      return res.status(400).json({ error: 'User already exists' });
+    }
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = new userModel({ username, password: hashedPassword, email, mobile, location, gender });
+    const savedUser = await newUser.save();
+    console.log("User added successfully");
+    res.status(201).json(savedUser);
+  } catch (error) {
+    console.error("Error adding user:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 // GET API READ ONLY
 app.get("/getusers/", async (req, res) => {
@@ -87,36 +82,36 @@ app.get("/getusers/", async (req, res) => {
 });
 
 // // UPDATE API 
-// app.put("/getusers/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { username, password, email, mobile, location, gender } = req.body;
-//     const updatedUser = await userModel.findByIdAndUpdate(id, { username, password, email, mobile, location, gender }, { new: true });
-//     if (!updatedUser) {
-//       return res.status(404).json({ error: "User not found" });
-//     }
-//     console.log("User updated successfully");
-//     res.json(updatedUser);
-//   } catch (error) {
-//     console.error("Error updating user:", error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// });
+app.put("/getusers/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { username, password, email, mobile, location, gender } = req.body;
+    const updatedUser = await userModel.findByIdAndUpdate(id, { username, password, email, mobile, location, gender }, { new: true });
+    if (!updatedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    console.log("User updated successfully");
+    res.json(updatedUser);
+  } catch (error) {
+    console.error("Error updating user:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 // // DELETE API 
-// app.delete("/getusers/:id", async (req, res) => {
-//   try {
-//     const deletedUser = await userModel.findByIdAndDelete(req.params.id);
-//     if (!deletedUser) {
-//       return res.status(404).json({ error: "User not found" });
-//     }
-//     console.log("User deleted successfully");
-//     res.json("User deleted successfully");
-//   } catch (error) {
-//     console.error("Error deleting user:", error);
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// });
+app.delete("/getusers/:id", async (req, res) => {
+  try {
+    const deletedUser = await userModel.findByIdAndDelete(req.params.id);
+    if (!deletedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+    console.log("User deleted successfully");
+    res.json("User deleted successfully");
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 // REGISTER API
 app.post('/registers/', async (req, res) => {
@@ -137,7 +132,6 @@ app.post('/registers/', async (req, res) => {
 });
 
 // Login
-
 app.post("/login/", async (req, res) => {
     try {
       const { username, password } = req.body;
