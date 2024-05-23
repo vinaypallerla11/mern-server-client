@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+
   "scripts": {
-    "start":"nodemon server.js"
+    "dev":"nodemon server.js",
+    "build": "npm i"
   },
   "keywords": [],
   "author": "",

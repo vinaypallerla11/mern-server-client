@@ -8,7 +8,6 @@ import jwt from "jsonwebtoken";
 const app = express();
 app.use(cors());
 
-app.use(cors(corsOptions));
 app.use(express.json());
 dotenv.config();
 
