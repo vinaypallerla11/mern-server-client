@@ -71,7 +71,7 @@ app.post("/getusers/", async (req, res) => {
 });
 
 // GET API READ ONLY
-app.get("/getusers/", async (req, res) => {
+app.get("/getusers/", authenticateToken async (req, res) => {
   try {
     const userData = await userModel.find();
     res.json(userData);
