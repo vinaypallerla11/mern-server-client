@@ -1,0 +1,204 @@
+/* index.css */
+
+
+/* Styles for the search container */
+.search-container {
+    display: flex; /* Enable flexbox */
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 100%; /* Ensure full width */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+  
+/* Adjust width for mobile devices */
+@media (max-width: 768px) {
+    .search-container {
+        width: 100%; /* Ensure full width on mobile devices */
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+}
+  
+.search-box {
+    position: relative;
+    display: flex;
+    flex: 1; /* Allow it to grow/shrink as needed */
+    max-width: 600px; /* Optional max-width for better appearance */
+    margin: 10px; /* Margin for spacing between elements */
+    box-sizing: border-box; /* Include padding in width/height */
+}
+  
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+  
+.search-input {
+    width: 100%; /* Full width for input */
+    padding: 10px 40px 10px 30px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    box-sizing: border-box; /* Include padding in width/height */
+}
+  
+.clear-button, .voice-search-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.clear-button {
+    right: 10px;
+}
+  
+.voice-search-button {
+    right: 50px; /* Positioned to the right of the input */
+}
+  
+/* Styles for the card container */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%; /* Ensure full width */
+}
+  
+/* Adjust width for mobile devices */
+@media (max-width: 768px) {
+    .card-container {
+        width: 100%; /* Ensure full width on mobile devices */
+    }
+}
+  
+/* Styles for the individual card */
+.card {
+    width: 300px; /* Initial width */
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+  
+.card img {
+    width: 200px;
+    height: 250px; /* Fixed height for images */
+    object-fit: cover; /* Ensure image covers the area without distortion */
+    padding:20px;   
+}
+  
+.card-content {
+    flex: 1; /* Allow content to grow and occupy remaining space */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+  
+.card-content h2 {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+  
+.card-content p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: black;
+}
+  
+.im-content {
+    height: 100px; /* Adjust as needed */
+    width: 100px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* MarqueeComponent.css */
+
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    width: 100%; /* Adjust as needed */
+    padding: 10px; /* Optional padding */
+  }
+  
+  .marquee-text {
+    display: inline-block;
+    animation: marquee-animation 20s linear infinite;
+    color:black;
+    font-size: 16px;
+    padding: 5px;
+  }
+  
+  @keyframes marquee-animation {
+    0% {
+      transform: translateX(400%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .marquee-text span {
+    padding-right: 20px; /* Adjust spacing between repetitions */
+    padding: 2px;
+    background-color: yellow;
+  }
+  
+  /* Media queries for responsive design */
+  @media (max-width: 768px) {
+    .marquee-text {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .marquee-text {
+      font-size: 14px;
+    }
+  }
+  
+
+  /* Rating Button */
+.button-star {
+    display: inline-block; /* Make the button inline-block */
+    background-color: #007bff; /* Blue */
+    color: #fff; /* White text */
+    border: 2px solid #007bff; /* Add border around the content */
+    padding: 6px 12px; /* Adjust padding to change button size */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px; /* Adjust font size to change button text size */
+    width: 70px; /* Set width to auto to fit content */
+
+  }
+  
+  .button-star:hover {
+    background-color: #0056b3; /* Darker Blue on hover */
+    border-color: #0056b3; /* Darker Blue border on hover */
+  }
+  
+
+.starimg{
+    padding-left:1px;
+}
+

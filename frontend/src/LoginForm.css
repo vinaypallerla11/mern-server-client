@@ -1,0 +1,101 @@
+.empForm {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .section {
+    background-color: #f9f9f9;
+    padding: 40px; /* Increased padding */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .head {
+    text-align: center;
+    margin-bottom: 30px; /* Increased margin bottom */
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .input-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .button-container {
+    text-align: center;
+  }
+  
+  .submit-button,
+  .create-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .create-button {
+    margin-top: 20px; /* Increased margin top */
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .error-msg {
+    color: red;
+    margin-top: 20px; /* Increased margin top */
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .empForm {
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .empForm {
+      max-width: 300px;
+    }
+  }
+
+  .highlight {
+    border-color: red; /* Highlight input field with red border */
+  }
+  
+
+  .password-input-container {
+    position: relative;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+
+/* .vtrendz{
+  height:40px;
+  width:65px;
+} */
+  
