@@ -5,7 +5,7 @@ import Products from './components/Products'
 import Cart from './components/Cart'
 import LoginForm from './LoginForm'
 import RegistrationForm from './RegistrationForm';
-import {BrowserRouter, Routes, Route} from 'react-router-d
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 const App = () => {
   return (
