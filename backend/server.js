@@ -1,3 +1,4 @@
+
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
@@ -14,7 +15,7 @@ dotenv.config();
 const PORT = process.env.PORT || 9000;
 const MONGO_URL = process.env.MONGO_URL;
 
-mongoose.connect(MONGO_URL, { useUnifiedTopology: true })
+mongoose.connect(MONGO_URL)
   .then(() => {
     console.log("MongoDB Connected Successfully!");
     app.listen(PORT, () => {
