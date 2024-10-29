@@ -29,6 +29,7 @@ const LoginForm = () => {
     navigate('/register');
   };
 
+
   const formSubmit = async (e) => {
     e.preventDefault();
     const userDetails = { username, password };
@@ -102,5 +103,6 @@ const LoginForm = () => {
     </div>
   );
 };
+
 
 export default LoginForm;
