@@ -42,7 +42,7 @@ const RegistrationForm = () => {
     }
     
     console.log(userDetails);
-    const url = 'http://localhost:8000/registers/';
+    const url = 'https://mern-server-client-2.onrender.com/registers/';
     const options = {
       method: 'POST',
       headers: {

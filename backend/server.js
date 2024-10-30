@@ -14,7 +14,7 @@ dotenv.config();
 const PORT = process.env.PORT || 9000;
 const MONGO_URL = process.env.MONGO_URL;
 
-mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 5000,  })
+mongoose.connect(MONGO_URL, { serverSelectionTimeoutMS: 5000 })
   .then(() => {
     console.log("MongoDB Connected Successfully!");
     app.listen(PORT, () => {
@@ -91,7 +91,7 @@ app.post("/login/", async (req, res) => {
 });
 
 // GET API - Read all users (for admin or testing purposes)
-app.get("/getusers/", authenticateToken, async (req, res) => {
+app.get("/getusers/", async (req, res) => {
   try {
     const userData = await userModel.find();
     res.json(userData);
