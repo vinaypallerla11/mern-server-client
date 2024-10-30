@@ -14,7 +14,7 @@ dotenv.config();
 const PORT = process.env.PORT || 9000;
 const MONGO_URL = process.env.MONGO_URL;
 
-mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, serverSelectionTimeoutMS: 5000,  })
   .then(() => {
     console.log("MongoDB Connected Successfully!");
     app.listen(PORT, () => {
