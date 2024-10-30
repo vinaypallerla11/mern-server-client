@@ -34,7 +34,7 @@ const LoginForm = () => {
     e.preventDefault();
     const userDetails = { username, password };
     console.log(userDetails);
-    const url = 'https://mern-server-client-2.onrender.com/login/';
+    const url = 'https://mern-server-client.onrender.com/login/';
     const options = {
       method: 'POST',
       headers: {
