@@ -13,17 +13,17 @@ const Index = () => {
     <div className='container'>
       <hr/>
       <div className='footer-section1'>
-        <div className='c'>
-          <h1>BE THE FIRST KNOW</h1>
+        <div className='subscribe'>
+          <h1 className='meta'>BE THE FIRST KNOW</h1>
           <p>Sign up for updates from metta muse.</p>
           <div>
             <input type="search"/> <span><button>Subscribe</button></span>
           </div>
         </div>
-        <div>
+        <div className='contactus'>
           <h1>CONTACT US</h1>
-          <p>+44 221 133 5360</p>
-          <p><a href="mailto:customercare@vinay.com">customercare@vinay.com</a></p>
+          <p>9542154659</p>
+          <p><a href="mailto:customercare@vinay.com">customercare@vinaypallerla.com</a></p>
           <h1>CURRENCY</h1>
           <h1>USD</h1>
           <p>Transactions will be completed in Euros and a currency reference is available an hour.</p>

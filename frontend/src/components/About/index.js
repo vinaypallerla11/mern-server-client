@@ -23,7 +23,7 @@ const index = () => {
         </div>
         <div className="about-content">
           <p>Welcome to VTrendz E-Commerce We are passionate about providing you with the best products and services. Our mission is to deliver quality and value to our customers.</p>
-          <p>Founded in [Year], our company has grown from a small startup to a leading player in the e-commerce industry. We offer a wide range of products to cater to all your needs and desires.</p>
+          <p>Founded in 2022, our company has grown from a small startup to a leading player in the e-commerce industry. We offer a wide range of products to cater to all your needs and desires.</p>
           <p>Our team is dedicated to ensuring a seamless shopping experience for you. We continuously strive to improve our platform and services based on your feedback.</p>
           <p>Thank you for choosing VTrendz E-Commerce. We look forward to serving you and making your shopping experience enjoyable and memorable.</p>
         </div>

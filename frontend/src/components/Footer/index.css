@@ -1,5 +1,5 @@
 .container {
-    background-color: black;
+    /* background-color: black; */
     padding: 20px;
   }
   
@@ -7,10 +7,14 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    background-color: black;
+    color:white;
+    /* margin-left:10px; */
   }
   
   .footer-section1 .c {
     flex-basis: 50%;
+    background-color: black;
   }
   
   .footer-section1 h1 {
@@ -25,6 +29,9 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    background-color: black;
+    color:white;
+    padding-left:60px;
   }
   
   .footer-last-section div {
@@ -41,6 +48,7 @@
   
   .para1 {
     font-size: 14px;
+    text-align: center;
   }
   
   /* Media Queries */
@@ -50,3 +58,19 @@
     }
   }
   
+  /* .meta{
+    background-color: lightslategray;
+  } */
+
+  .contactus{
+    background-color: black;
+    color:white;
+    padding-right:100px;
+    padding-left:30px;
+  }
+
+  .subscribe{
+    background-color: black;
+    color:white;
+    padding-left:30px;
+  }

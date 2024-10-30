@@ -3,6 +3,7 @@ import Navbar from '../Navbar'
 import Cookies from 'js-cookie';
 import { Link, useNavigate } from 'react-router-dom';
 import './index.css';
+import Footer from '../Footer'
 
 const Home = () => {
   const navigate = useNavigate();
@@ -43,6 +44,7 @@ const Home = () => {
           className="home-desktop-img"
         />
       </div>
+      <Footer />
     </>
   );
 };

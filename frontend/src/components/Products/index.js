@@ -5,6 +5,7 @@ import './index.css'; // Import your CSS file for styling
 import { FiSearch, FiX, FiMic } from 'react-icons/fi'; // Import icons from react-icons library
 import { FaRegStar } from "react-icons/fa";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Footer from '../Footer'
 
 const Index = () => {
   const [data, setData] = useState([]);
@@ -130,7 +131,9 @@ const Index = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
+    
   );
 };
 
