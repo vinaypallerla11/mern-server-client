@@ -21,6 +21,7 @@ const Home = () => {
 
   return (
     <>
+      <div className='homeapp'>
       <Navbar/>
       <div className="home-container">
         <div className="home-content">
@@ -43,6 +44,7 @@ const Home = () => {
           alt="clothes that get you noticed"
           className="home-desktop-img"
         />
+      </div>
       </div>
       <Footer />
     </>

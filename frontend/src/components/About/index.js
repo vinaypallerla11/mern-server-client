@@ -4,10 +4,10 @@ import Footer from '../Footer'
 import './index.css'
 
 const teamMembers = [
-  { name: 'Vinay Pallerla', role: 'CEO', imageUrl: 'https://res.cloudinary.com/ddehbjyiy/image/upload/v1667238921/vinay_fkyrks.jpg' },
-  { name: 'Jane Smith', role: 'CTO', imageUrl: 'https://res.cloudinary.com/ddehbjyiy/image/upload/v1717571510/vinay_pic_xm9tv1.jpg' },
-  { name: 'Alice Johnson', role: 'CMO', imageUrl: 'https://via.placeholder.com/150' },
-  { name: 'Bob Brown', role: 'COO', imageUrl: 'https://via.placeholder.com/150' },
+  { name: 'Sundar Pichai', role: 'CEO', imageUrl: 'https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRTqPXvprIS8lGKWX8aZ7KRVR8eqTcSyFPMYMHnSIDo77mBsREj8sAaQpeoWONi4_w0vT5BxB41Znc2ftDw' },
+  { name: 'Srini Pallia', role: 'CTO', imageUrl: 'https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcQaexRyLc37tnatMUnAE5yW3Qrym5h3McDFLJt9ghHTbVz2u2jLVW14mu6me5YsF-Rj' },
+  { name: 'Ravi Kumar S', role: 'CMO', imageUrl: 'https://t3.gstatic.com/licensed-image?q=tbn:ANd9GcSfOVReH5dSO_cP4VdxMPiV3GduP3OxkAOG8jE0bpfOkB32NWknKQbc9TIqMHlxOBquKm_-joBHRWI6fcvq' },
+  { name: 'vinay', role: 'COO', imageUrl: 'https://res.cloudinary.com/ddehbjyiy/image/upload/v1717571510/vinay_pic_xm9tv1.jpg' },
   // Add more team members as needed
 ];
 
