@@ -227,3 +227,36 @@ h2{
   width: 100%;
 }
 
+.cart-button{
+    display:flex; 
+    background-color: yellow; /* Blue */
+    color: black; /* White text */
+    border: 2px solid yellow; 
+    padding: 6px 12px; /* Adjust padding to change button size */
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 15px; /* Adjust font size to change button text size */
+    width: auto; /* Set width to auto to fit content */
+    padding-top: 5px;
+    padding:4px;
+    margin-top:5px;
+    justify-content: center;
+}
+
+.buy-button{
+  display:flex; 
+  background-color: orange; /* Blue */
+  color: black; /* White text */
+  border: 2px solid orange; 
+  padding: 6px 12px; /* Adjust padding to change button size */
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 15px; /* Adjust font size to change button text size */
+  width: auto; /* Set width to auto to fit content */
+  padding-top: 5px;
+  padding:4px;
+  margin-top:5px;
+  justify-content: center;
+}

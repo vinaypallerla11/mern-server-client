@@ -125,7 +125,8 @@ const Index = () => {
                 <h2>{item.title}</h2>
                 <p className='para'>$ {item.price}/-</p>
                 <button className='button-star'>{item.rating.rate}<span><FaRegStar className='starimg' /></span></button>
-                <button>Add to Cart</button>
+                <button className='cart-button'>Add to Cart</button>
+                <button className='buy-button'>Buy Now</button>
               </div>
             </div>
           ))}
