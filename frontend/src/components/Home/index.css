@@ -24,6 +24,7 @@ body {
   width: 100%;
   max-width: 300px;
   margin-bottom: 20px;
+  height: auto; /* Ensure height auto for responsive */
 }
 
 .home-content {
@@ -34,12 +35,13 @@ body {
 .home-description {
   font-size: 16px;
   line-height: 1.5;
-  color: #666;
+  color: #555; /* Darker shade for better readability */
   margin-bottom: 20px;
 }
 
 .shop-now-button {
-  padding: 10px 20px;
+  width: 200px; /* Fixed width */
+  padding: 10px; /* Uniform padding */
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -47,10 +49,15 @@ body {
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
+  margin: 0 auto; /* Center the button */
 }
 
 .shop-now-button:hover {
   background-color: #0056b3;
+}
+
+.shop-now-button:focus {
+  outline: 2px solid #0056b3; /* Focus outline */
 }
 
 /* Desktop layout */
@@ -66,14 +73,17 @@ body {
   }
 
   .shop-now-button {
-    padding: 15px 30px; /* Increase padding for button */
+    width: 250px; /* Optional: adjust for larger screens */
+    padding: 15px; /* Increase padding for button */
   }
 }
 
-.home-desktop-img{
-width:90%;
+.home-desktop-img {
+  width: auto; /* Maintain aspect ratio */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 90%; /* Limit max width */
 }
 
-.homeapp{
-max-width: 100%;
+.homeapp {
+  max-width: 100%;
 }

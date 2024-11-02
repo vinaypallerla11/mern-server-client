@@ -1,26 +1,26 @@
-// App.js
+// Index.js
 import React, { useState, useEffect } from 'react';
-import NavBar from '../Navbar';
-import './index.css'; // Import your CSS file for styling
-import { FiSearch, FiX, FiMic } from 'react-icons/fi'; // Import icons from react-icons library
+import { useNavigate } from 'react-router-dom';
+import { FiSearch, FiX, FiMic } from 'react-icons/fi';
 import { FaRegStar } from "react-icons/fa";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
-import Footer from '../Footer'
+import NavBar from '../Navbar';
+import Footer from '../Footer';
+import './index.css';
 
 const Index = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
-  const [showClearButton, setShowClearButton] = useState(false); // State to show clear button
+  const [showClearButton, setShowClearButton] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch('https://fakestoreapi.com/products');
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
+        if (!response.ok) throw new Error('Network response was not ok');
         const jsonData = await response.json();
         setData(jsonData);
         setLoading(false);
@@ -29,63 +29,32 @@ const Index = () => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
   useEffect(() => {
-    const results = data.filter((item) => {
-      return (
-        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.category.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    });
+    const results = data.filter((item) =>
+      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.category.toLowerCase().includes(searchTerm.toLowerCase())
+    );
     setSearchResults(results);
   }, [searchTerm, data]);
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
-    setShowClearButton(!!e.target.value); // Show clear button if there's input
+    setShowClearButton(!!e.target.value);
   };
 
   const clearSearch = () => {
     setSearchTerm('');
-    setShowClearButton(false); // Hide clear button when input is cleared
+    setShowClearButton(false);
   };
 
-  const startVoiceSearch = () => {
-    const recognition = new window.webkitSpeechRecognition();
-    recognition.continuous = false;
-    recognition.interimResults = false;
-    recognition.lang = 'en-US';
-    
-    recognition.onstart = () => {
-      console.log('Voice search started');
-    };
-    
-    recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript;
-      setSearchTerm(transcript);
-    };
-    
-    recognition.onerror = (event) => {
-      console.error('Voice search error:', event.error);
-    };
-    
-    recognition.onend = () => {
-      console.log('Voice search ended');
-    };
-    
-    recognition.start();
+  const handleCardClick = (productId) => {
+    navigate('/cartitem', { state: { productId } });
   };
 
-  if (loading) {
-    return <div className='loading'> <AiOutlineLoading3Quarters /> </div>;
-  }
-
-  if (data.length === 0) {
-    return <div>Error fetching data</div>;
-  }
+  if (loading) return <div className='loading'> <AiOutlineLoading3Quarters /> Loading... </div>;
 
   return (
     <div>
@@ -93,7 +62,7 @@ const Index = () => {
       <div className='container'>
         <div className="marquee-container">
           <div className="marquee-text">
-            <span>Welcome to our website! Check out our latest offers.</span>
+            <span>Welcome to our vtrendz! Check out our latest offers.</span>
           </div>
         </div>
         <div className="search-container">
@@ -105,36 +74,41 @@ const Index = () => {
               value={searchTerm}
               onChange={handleSearch}
               className="search-input"
-              aria-label="Search"
             />
             {showClearButton && (
-              <button className="clear-button" onClick={clearSearch} aria-label="Clear search">
+              <button className="clear-button" onClick={clearSearch}>
                 <FiX />
               </button>
             )}
-            <button className="voice-search-button" onClick={startVoiceSearch} aria-label="Start voice search">
+            <button className="voice-search-button">
               <FiMic />
             </button>
           </div>
         </div>
-        <div className="card-container">
-          {searchResults.map((item) => (
-            <div key={item.id} className="card">
-              <img src={item.image} alt={item.title} className='im-content'/>
-              <div className="card-content">
-                <h2>{item.title}</h2>
-                <p className='para'>$ {item.price}/-</p>
-                <button className='button-star'>{item.rating.rate}<span><FaRegStar className='starimg' /></span></button>
-                <button className='cart-button'>Add to Cart</button>
-                <button className='buy-button'>Buy Now</button>
-              </div>
-            </div>
-          ))}
+        <div>
+          <ul className="card-container">
+            {searchResults.map((item) => (
+              <li 
+                key={item.id} 
+                className="card" 
+                onClick={() => handleCardClick(item.id)}
+                style={{ cursor: 'pointer' }}
+              >
+                <img src={item.image} alt={item.title} className='im-content' />
+                <div className="card-content">
+                  <h2>{item.title}</h2>
+                  <p className='para'>$ {item.price}/-</p>
+                  <button className='button-star'>{item.rating.rate}<FaRegStar className='starimg' /></button>
+                  <button className='cart-button'>Add to Cart</button>
+                  <button className='buy-button'>Buy Now</button>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
       <Footer />
     </div>
-    
   );
 };
 

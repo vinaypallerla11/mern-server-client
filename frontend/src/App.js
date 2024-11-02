@@ -3,6 +3,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Products from './components/Products'
 import Cart from './components/Cart'
+import Cartitem from './components/Cartitem'
 import LoginForm from './LoginForm'
 import RegistrationForm from './RegistrationForm';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='/about' element={<About/>} />
           <Route path='/products' element={<Products/>} />
           <Route path='/cart' element={<Cart/>} />
+          <Route path='/cartitem' element={<Cartitem/>} />
         </Routes>
       </BrowserRouter>
     </div>
