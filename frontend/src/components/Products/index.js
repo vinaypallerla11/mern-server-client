@@ -23,9 +23,9 @@ const Index = () => {
         if (!response.ok) throw new Error('Network response was not ok');
         const jsonData = await response.json();
         setData(jsonData);
-        setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
+      } finally {
         setLoading(false);
       }
     };
@@ -33,16 +33,21 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    const results = data.filter((item) =>
-      item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.category.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setSearchResults(results);
+    if (searchTerm) {
+      const results = data.filter((item) =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setSearchResults(results);
+    } else {
+      setSearchResults(data);
+    }
   }, [searchTerm, data]);
 
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
-    setShowClearButton(!!e.target.value);
+    const term = e.target.value;
+    setSearchTerm(term);
+    setShowClearButton(!!term);
   };
 
   const clearSearch = () => {
@@ -54,7 +59,11 @@ const Index = () => {
     navigate('/cartitem', { state: { productId } });
   };
 
-  if (loading) return <div className='loading'> <AiOutlineLoading3Quarters /> Loading... </div>;
+  if (loading) return (
+    <div className='loading'>
+      <AiOutlineLoading3Quarters /> Loading...
+    </div>
+  );
 
   return (
     <div>
@@ -97,10 +106,10 @@ const Index = () => {
                 <img src={item.image} alt={item.title} className='im-content' />
                 <div className="card-content">
                   <h2>{item.title}</h2>
-                  <p className='para'>$ {item.price}/-</p>
-                  <button className='button-star'>{item.rating.rate}<FaRegStar className='starimg' /></button>
-                  <button className='cart-button'>Add to Cart</button>
-                  <button className='buy-button'>Buy Now</button>
+                  <p className='para'>${item.price}/-</p>
+                  <button className='button-star'>
+                    {item.rating.rate} <FaRegStar className='starimg' />
+                  </button>
                 </div>
               </li>
             ))}

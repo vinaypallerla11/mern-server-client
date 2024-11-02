@@ -1,76 +1,147 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 .container {
-    /* background-color: black; */
-    padding: 20px;
+  background-color: #111;
+  color: #fff;
+  padding: 40px 20px;
+  max-width: 1200px; /* Keeps footer content centered in larger screens */
+  margin: 0 auto; /* Center the container */
+  width: 100%; /* Ensure the container takes the full width */
+}
+
+h1 {
+  font-size: 16px;
+  color: #f0f0f0;
+  margin-bottom: 12px;
+}
+
+p, a {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #fff;
+}
+
+/* Footer Section 1 */
+.footer-section1 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 0; /* Add top and bottom padding for spacing */
+  border-bottom: 1px solid #333;
+  width: 100%; /* Ensure the footer section uses full width */
+}
+
+.subscribe h1, .contactus h1 {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.subscribe input[type="search"] {
+  padding: 10px;
+  width: calc(100% - 110px); /* Responsive width calculation */
+  max-width: 280px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #222;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.subscribe button {
+  padding: 10px 15px;
+  background-color: #f90;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.subscribe button:hover {
+  background-color: #e87e04;
+}
+
+.contactus p {
+  margin: 8px 0;
+}
+
+/* Footer Last Section */
+.footer-last-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+  width: 100%; /* Ensure the last section uses full width */
+}
+
+.footer-last-section div {
+  flex: 1 1 200px; /* Allow items to flex but keep a minimum width */
+}
+
+.footer-last-section h1 {
+  margin-bottom: 10px;
+}
+
+.icon-container {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.icon-container span {
+  font-size: 28px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.icon-container span:hover {
+  color: #f0f0f0;
+}
+
+/* Footer Bottom */
+.para1 {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+}
+
+.para1 span {
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .footer-section1, .footer-last-section {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center align items */
+    text-align: center; /* Center text */
+    
   }
-  
-  .footer-section1 {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    background-color: black;
-    color:white;
-    /* margin-left:10px; */
+
+  .subscribe input[type="search"] {
+    width: 100%; /* Full width for input on smaller screens */
+    margin-bottom: 10px; /* Add spacing below input */
   }
-  
-  .footer-section1 .c {
-    flex-basis: 50%;
-    background-color: black;
-  }
-  
-  .footer-section1 h1 {
-    font-size: 18px;
-  }
-  
-  .footer-section1 p {
-    font-size: 14px;
-  }
-  
-  .footer-last-section {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    background-color: black;
-    color:white;
-    padding-left:60px;
-  }
-  
-  .footer-last-section div {
-    flex-basis: 30%;
-  }
-  
+
   .icon-container {
-    display: flex;
+    justify-content: center; /* Center icons on smaller screens */
   }
-  
-  .icon-container span {
-    margin-right: 10px;
-  }
-  
-  .para1 {
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  /* Media Queries */
-  @media screen and (max-width: 768px) {
-    .footer-section1, .footer-last-section {
-      flex-direction: column;
-    }
-  }
-  
-  /* .meta{
-    background-color: lightslategray;
-  } */
-
-  .contactus{
-    background-color: black;
-    color:white;
-    padding-right:100px;
-    padding-left:30px;
-  }
-
-  .subscribe{
-    background-color: black;
-    color:white;
-    padding-left:30px;
-  }
+}

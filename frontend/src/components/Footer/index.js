@@ -34,7 +34,7 @@ const Index = () => {
 
       <div className='footer-last-section'>
         <div>
-          <h1>metta muse</h1>
+          <h1>METTA MUSE</h1>
           <p><a href="/about">About Us</a></p>
           <p><a href="/stories">Stories</a></p>
           <p><a href="/artisans">Artisans</a></p>
@@ -54,7 +54,7 @@ const Index = () => {
         </div>
         <div>
           <h1>FOLLOW US</h1>
-          <p>metta muse ACCEPTS</p>
+          <p>Metta Muse ACCEPTS</p>
           <div className='icon-container'>
             <span className='gpay'><FaGooglePay /></span>
             <span className='mcard'><FaCcMastercard /></span>

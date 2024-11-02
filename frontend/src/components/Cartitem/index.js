@@ -46,10 +46,10 @@ const CartItem = () => {
         <div className="cart-item">
           <img src={product.image} alt={product.title} className="cart-item-image" />
           <div className="cart-item-details">
-            <h2>{product.title}</h2>
+            <h2 className='title'>{product.title}</h2>
             <p className="cart-item-price">Price: ${product.price}</p>
             <button className='button-star'>{product.rating.rate}<FaRegStar className='starimg' /></button>
-            <p>Description: {product.description}</p>
+            <p className='description'>Description: {product.description}</p>
             <p><span className='stock'>Available:</span> In Stock</p>
             <button className="add-to-cart-button" onClick={handleAddToCart}>Add to Cart</button>
           </div>

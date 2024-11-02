@@ -13,13 +13,27 @@ body {
 
 /* Marquee */
 .marquee-container {
-  background-color: #ffcc00;
-  padding: 10px;
+  background-color: #221783; /* Background color for the marquee */
+  padding: 10px 0; /* Padding only on top and bottom */
+  overflow: hidden; /* Hide overflow */
+  width: 100%; /* Ensure the container is full width */
 }
 
 .marquee-text {
+  display: inline-block; /* Inline block for scrolling */
+  animation: scroll-left 10s linear infinite; /* Adjust duration for speed */
   font-size: 18px;
-  text-align: center;
+  color: white; /* Text color for visibility */
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%); /* Start off-screen to the right */
+  }
+  100% {
+    transform: translateX(-100%); /* End off-screen to the left */
+  }
 }
 
 /* Search Container */
@@ -36,7 +50,6 @@ body {
   max-width: 800px; /* Increased width for a more prominent search box */
   background-color: white; /* Background color to stand out */
   border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .search-input {
@@ -83,7 +96,6 @@ body {
 .card {
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.2s;
 }
