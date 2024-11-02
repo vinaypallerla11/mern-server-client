@@ -23,7 +23,10 @@ const Cart = () => {
             </div>
           </div>
         ) : (
-          <p>No items in the cart.</p>
+          <div className="empty-cart">
+            <p>No items in the cart.</p>
+            <img src="https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-icon-download-in-svg-png-gif-file-formats--online-bag-wayfinding-pack-miscellaneous-icons-1211836.png?f=webp&w=256" alt="Empty cart icon" className="cartimage" />
+          </div>
         )}
       </div>
     </div>

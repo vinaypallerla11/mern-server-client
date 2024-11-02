@@ -1,11 +1,8 @@
-/* index.css */
-
 /* General styling for the cart container */
 .cart-container {
     max-width: 80%; /* 80% max width for larger screens */
     margin: 20px auto; /* Centered with top and bottom margin */
     padding: 20px; /* Added padding for a spacious feel */
-
     border-radius: 8px; /* Rounded corners */
 }
 
@@ -102,6 +99,23 @@ button:hover {
     transform: translateY(-2px); /* Slight lift effect */
 }
 
+/* Empty Cart Styling */
+.empty-cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    height: 100vh; /* Make it take the full height of the viewport */
+    margin-top: 20px; /* Space above the empty cart message */
+}
+
+/* Cart Image Styling */
+.cartimage {
+    width: 100px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 10px; /* Space below the message */
+}
+
 /* Media Queries for responsiveness */
 @media (max-width: 1200px) {
     .cart-container {
@@ -167,5 +181,39 @@ button:hover {
 
     button, .clear-cart-button {
         font-size: 12px; /* Smaller button font size */
+    }
+}
+
+/* Media Queries for Empty Cart */
+@media (max-width: 768px) { /* Tablet and mobile */
+    .empty-cart {
+        height: auto; /* Allow natural height for smaller screens */
+        padding: 20px; /* Add some padding */
+    }
+
+    .cartimage {
+        width: 80px; /* Smaller icon for mobile */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) { /* Tablet */
+    .empty-cart {
+        height: auto; /* Allow natural height */
+        padding: 30px; /* Adjust padding for tablet */
+    }
+
+    .cartimage {
+        width: 90px; /* Slightly smaller icon for tablet */
+    }
+}
+
+@media (min-width: 1025px) { /* Desktop */
+    .empty-cart {
+        height: auto; /* Allow natural height */
+        padding: 40px; /* Adjust padding for desktop */
+    }
+
+    .cartimage {
+        width: 230px; /* Default icon size for desktop */
     }
 }
