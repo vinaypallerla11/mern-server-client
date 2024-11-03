@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCart } from '../../context/CartContext';
 import CartItem from '../Cartitem/CartItem';
-// import NavBar from '../Navbar';
+import NavBar from '../NavBar';
 import { useNavigate } from 'react-router-dom'; // Import navigate for checkout
 import './index.css';
 
@@ -21,6 +21,8 @@ const Cart = () => {
   const clearCart = () => {
     cart.forEach(item => removeFromCart(item.id)); // Remove each item
   };
+  <NavBar />
+
 
   return (
     <>
@@ -37,7 +39,14 @@ const Cart = () => {
             </div>
           </>
         ) : (
-          <p>No items in the cart.</p>
+          <div className="empty-cart">
+            <p>No items in the cart.</p>
+            <img 
+              src="https://cdn.iconscout.com/icon/free/png-256/free-shopping-cart-icon-download-in-svg-png-gif-file-formats--online-bag-wayfinding-pack-miscellaneous-icons-1211836.png?f=webp&w=256" 
+              alt="Empty cart" 
+              className="empty-cart-image"
+            />
+          </div>
         )}
       </div>
     </>

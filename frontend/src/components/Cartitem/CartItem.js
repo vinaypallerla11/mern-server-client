@@ -1,14 +1,12 @@
 import React from 'react';
 import { useCart } from '../../context/CartContext';
 import './index.css'; // Ensure this path is correct
-import NavBar from '../NavBar';
 
 const CartItem = ({ product }) => {
   const { removeFromCart, increaseQuantity, decreaseQuantity } = useCart();
 
   return (
     <>
-      <NavBar/>
       <div className="cart-item">
         <img 
           src={product.image} 
