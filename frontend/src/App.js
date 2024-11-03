@@ -1,28 +1,32 @@
 import React from 'react';
-import Home from './components/Home'
-import About from './components/About'
-import Products from './components/Products'
-import Cart from './components/Cart'
-import Cartitem from './components/Cartitem'
-import LoginForm from './LoginForm'
+import Home from './components/Home';
+import About from './components/About';
+import Products from './components/Products';
+import Cart from './components/Cart';
+import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { CartProvider } from './context/CartContext';
+// import NavBar from './components/NavBar';
 
 const App = () => {
   return (
-    <div>
-      <BrowserRouter>
+    <BrowserRouter>
+      <CartProvider>
+      {/* <NavBar /> */}
         <Routes>
-          <Route path='/login' element={<LoginForm />} />
           <Route path='/' element={<Home />} />
-          <Route path="/register" element={<RegistrationForm />}/>
-          <Route path='/about' element={<About/>} />
-          <Route path='/products' element={<Products/>} />
-          <Route path='/cart' element={<Cart/>} />
-          <Route path='/cartitem' element={<Cartitem/>} />
+          <Route path='/about' element={<About />} />
+          <Route path='/products' element={<Products />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/login' element={<LoginForm />} />
+        <Route path="/register" element={<RegistrationForm />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+           
+      </CartProvider>
+      
+
+    </BrowserRouter>
   );
 }
 

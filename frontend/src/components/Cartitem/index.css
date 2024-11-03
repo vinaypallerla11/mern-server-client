@@ -1,179 +1,56 @@
-/* Basic styles */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif; /* Set a default font */
-  }
-  
-  .cart-item-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    margin: 0 auto;
-  }
-  
-  /* Styling for the cart item */
+.cart-item {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.cart-item-image {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.quantity-controls button {
+  padding: 5px 10px;
+  margin: 0 5px;
+}
+
+.remove-button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.remove-button:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
   .cart-item {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    transition: transform 0.2s;
-    display: flex;
-    flex-direction: column; /* Default to column layout for mobile */
-    width: 100%; /* Full width by default */
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .cart-item:hover {
-    transform: scale(1.02);
-  }
-  
+
   .cart-item-image {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px;
   }
-  
-  .cart-item-details {
-    padding: 15px;
-    display: flex;
-    flex-direction: column; /* Stack details vertically */
-  }
-  
-  /* Title and description styling */
-  .title {
-    font-size: 1.5rem;
-    margin: 10px 0;
-  }
-  
-  .cart-item-price,
-  .description,
-  .stock {
-    font-size: 1rem;
-    margin: 5px 0;
-  }
-  
-  /* Button styling */
-  .add-to-cart-button {
-    background-color: #ff9800;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .add-to-cart-button:hover {
-    background-color: #e68a00;
-  }
-  
-  /* Media Queries */
-  
-  /* Mobile devices */
-  @media (max-width: 600px) {
-    .cart-item-container {
-      flex-direction: column;
-      padding: 10px;
-    }
-  
-    .cart-item {
-      width: 100%; /* Full width on mobile */
-    }
-  
-    .title {
-      font-size: 1.25rem;
-    }
-  
-    .cart-item-price,
-    .description,
-    .stock {
-      font-size: 0.9rem;
-    }
-  
-    .add-to-cart-button {
-      width: 100%;
-      padding: 12px; /* Larger button */
-    }
-  }
-  
-  /* Tablet devices */
-  @media (min-width: 601px) and (max-width: 900px) {
-    .cart-item-container {
-      flex-direction: column;
-      padding: 15px;
-    }
-  
-    .cart-item {
-      width: 80%; /* Set width for tablets */
-      flex-direction: column; /* Column layout */
-      margin: 0 auto; /* Center the item */
-    }
-  
-    .cart-item-image {
-      width: 100%; /* Image full width */
-      height: auto; /* Maintain aspect ratio */
-    }
-  
-    .cart-item-details {
-      padding: 15px;
-    }
-  
-    .title {
-      font-size: 1.5rem;
-    }
-  
-    .cart-item-price,
-    .description,
-    .stock {
-      font-size: 1rem;
-    }
-  
-    .add-to-cart-button {
-      width: 100%;
-      padding: 10px 15px; /* Standard button size */
-    }
-  }
-  
-  /* Desktop devices */
-  @media (min-width: 901px) {
-    .cart-item-container {
-      width: 70%; /* Limit width on larger screens */
-      margin: 0 auto; /* Center the container */
-      display: flex; /* Keep flex for multiple items if necessary */
-      justify-content: center;
-    }
-  
-    .cart-item {
-      display: flex; /* Side by side layout */
-      flex-direction: row; /* Row layout */
-      width: 100%; /* Full width */
-      max-width: 800px; /* Optional: set max width */
-      margin: 10px; /* Add margin between items if multiple */
-    }
-  
-    .cart-item-image {
-      width: 50%; /* Image takes half the space */
-      object-fit: cover; /* Ensure image covers the area */
-    }
-  
-    .cart-item-details {
-      width: 50%; /* Details take the other half */
-      padding: 20px; /* Increased padding */
-    }
-  
-    .title {
-      font-size: 1.75rem; /* Larger title */
-    }
-  
-    .cart-item-price,
-    .description,
-    .stock {
-      font-size: 1.1rem; /* Larger text for desktop */
-    }
-  
-    .add-to-cart-button {
-      padding: 15px 20px; /* Larger button for desktop */
-    }
-  }
-  
+}

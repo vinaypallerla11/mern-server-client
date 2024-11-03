@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../Navbar'
+import Navbar from '../NavBar'
 import Footer from '../Footer'
 import './index.css'
 
@@ -15,7 +15,6 @@ const index = () => {
   return (
     <div>
       <Navbar/>
-
       <div className="about-container" id="about">
         <div className="about-header">
           <h1>About Us</h1>
