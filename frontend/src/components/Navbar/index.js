@@ -4,7 +4,7 @@ import { MdOutlineFormatLineSpacing } from 'react-icons/md';
 import './index.css';
 import Cookies from 'js-cookie';
 
-const NavBar = () => {
+const Navbar = () => {
   const navigate = useNavigate();
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
@@ -69,4 +69,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default Navbar;

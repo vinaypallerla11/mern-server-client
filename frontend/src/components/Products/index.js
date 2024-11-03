@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductItem from '../ProductItem';
-import Navbar from '../NavBar'
+import Navbar from '../Navbar'
 import './index.css';
 
 const Products = () => {

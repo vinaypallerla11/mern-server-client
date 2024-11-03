@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCart } from '../../context/CartContext';
 import CartItem from '../Cartitem/CartItem';
-import NavBar from '../NavBar';
+// import NavBar from '../Navbar';
 import { useNavigate } from 'react-router-dom'; // Import navigate for checkout
 import './index.css';
 
@@ -21,7 +21,6 @@ const Cart = () => {
   const clearCart = () => {
     cart.forEach(item => removeFromCart(item.id)); // Remove each item
   };
-  <NavBar />
 
 
   return (

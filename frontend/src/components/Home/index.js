@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { Link, useNavigate } from 'react-router-dom';
-import NavBar from '../NavBar'; // Import NavBar component
+import NavBar from '../Navbar'; // Import NavBar component
 import './index.css';
 import Footer from '../Footer';
 
