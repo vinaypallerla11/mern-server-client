@@ -269,7 +269,7 @@ footer {
 
 /* Marquee */
 .marquee-container {
-  background-color: #221783; 
+  background-color: #f5f5f5;
   padding: 10px 0;
   overflow: hidden;
   width: 100%;
@@ -279,7 +279,7 @@ footer {
   display: inline-block;
   animation: scroll-left 10s linear infinite;
   font-size: 18px;
-  color: white;
+  color: black;
   white-space: nowrap;
 }
 
