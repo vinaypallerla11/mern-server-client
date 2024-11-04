@@ -13,26 +13,27 @@ body {
 
 /* Marquee */
 .marquee-container {
-  background-color: #221783; /* Background color for the marquee */
-  padding: 10px 0; /* Padding only on top and bottom */
-  overflow: hidden; /* Hide overflow */
-  width: 100%; /* Ensure the container is full width */
+  background-color: #221783; 
+  padding: 10px 0;
+  overflow: hidden;
+  width: 100%;
 }
 
 .marquee-text {
-  display: inline-block; /* Inline block for scrolling */
-  animation: scroll-left 10s linear infinite; /* Adjust duration for speed */
+  display: inline-block;
+  animation: scroll-left 10s linear infinite;
+  animation-delay: 1s;
   font-size: 18px;
-  color: white; /* Text color for visibility */
-  white-space: nowrap; /* Prevent line breaks */
+  color: white;
+  white-space: nowrap;
 }
 
 @keyframes scroll-left {
   0% {
-    transform: translateX(100%); /* Start off-screen to the right */
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(-100%); /* End off-screen to the left */
+    transform: translateX(-100%);
   }
 }
 
@@ -41,43 +42,48 @@ body {
   display: flex;
   justify-content: center;
   margin: 20px 0;
+  padding: 1rem;
 }
 
 .search-box {
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 800px; /* Increased width for a more prominent search box */
-  background-color: white; /* Background color to stand out */
-  border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 800px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-input {
-  flex: 1; /* Make input take available space */
-  padding: 10px 15px; /* Adjust padding for better spacing */
-  border: none; /* No border to blend in with the search box */
-  border-radius: 5px 0 0 5px; /* Rounded corners only on the left */
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px 0 0 5px; /* Left corners rounded */
   font-size: 16px;
 }
 
 .search-input:focus {
-  outline: none; /* Remove outline on focus */
-  box-shadow: 0 0 3px #ffcc00; /* Highlight on focus */
+  outline: none;
+  box-shadow: 0 0 3px #ffcc00;
 }
 
-.clear-button,
+.clear-search-button,
 .voice-search-button {
-  background: transparent; /* Transparent background */
-  border: none; /* No border */
-  padding: 10px; /* Padding for click area */
-  cursor: pointer; /* Pointer cursor */
-  color: #888; /* Icon color */
+  background: transparent;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  color: #888;
 }
 
-.clear-button:hover,
+.clear-search-button:hover,
 .voice-search-button:hover {
-  color: #ffcc00; /* Highlight on hover */
+  color: #ffcc00; /* Highlight color */
+}
+
+.voice-recognization {
+  margin-left: 5px; /* Space between input and button */
 }
 
 /* Card Container */
@@ -93,7 +99,7 @@ body {
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
-  transition: transform 0.2s;
+  transition: transform 0.2s; /* Smooth scaling on hover */
 }
 
 .card:hover {
@@ -102,8 +108,8 @@ body {
 
 .im-content {
   width: 100%;
-  height: 300px; /* Adjusted height for better visibility */
-  object-fit: contain; /* Adjusted to show the full image */
+  height: 300px;
+  object-fit: contain;
 }
 
 .card-content {
@@ -149,6 +155,53 @@ footer {
   color: white;
 }
 
+/* Products Container */
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  transition: all 0.3s ease; /* Smooth transitions */
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.5em;
+  margin: 20px;
+}
+
+.loading {
+  color: #000;
+}
+
+/* Loading State Styles */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-image {
+  width: 100px;
+  height: auto;
+}
+
+/* Mobile-first: Show by default */
+.mobile-icons {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f8f9fa;
+}
+
+/* Tablet and desktop: Hide .mobile-icons */
+@media (min-width: 769px) {
+  .mobile-icons {
+    display: none;
+  }
+}
+
 /* Media Queries */
 @media (max-width: 1024px) {
   .search-container {
@@ -157,7 +210,7 @@ footer {
   }
 
   .search-box {
-    max-width: 90%; /* Adjust width on smaller screens */
+    max-width: 90%;
   }
 }
 
@@ -169,6 +222,33 @@ footer {
   .marquee-text {
     font-size: 16px;
   }
+
+  .search-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    max-width: 100%;
+    margin: 0 10px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .voice-recognization {
+    margin-left: 0; /* Remove margin on smaller screens */
+    margin-top: 10px; /* Space above on small screens */
+  }
+
+  .clear-search-button,
+  .voice-search-button {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -177,125 +257,6 @@ footer {
   }
 
   .search-input {
-    padding: 10px; /* Less padding on mobile */
-  }
-}
-
-/* Products Container */
-.products-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around; /* Adjust alignment as needed */
-  padding: 20px; /* Add padding for aesthetics */
-}
-
-.loading, .error {
-  text-align: center;
-  font-size: 1.5em;
-  margin: 20px;
-  color: #ff0000; /* Red color for error messages */
-}
-
-.loading {
-  color: #000; /* Black color for loading */
-}
-
-/* Loading State Styles */
-.loading-container {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 100vh; /* Full viewport height */
-}
-
-.loading-image {
-  width: 100px; /* Adjust size */
-  height: auto; /* Maintain aspect ratio */
-}
-
-/* Search Container */
-.search-container {
-  display: flex;
-  justify-content: center; /* Center items horizontally */
-  align-items: center; /* Align items vertically */
-  margin: 20px 0; /* Margin around the container */
-}
-
-.search-box {
-  display: flex;
-  align-items: center; /* Center items vertically within the box */
-  width: 100%;
-  max-width: 800px; /* Maximum width of the search box */
-  background-color: white; /* Background color to stand out */
-  border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  overflow: hidden; /* Prevent overflow from elements inside */
-}
-
-.search-input {
-  flex: 1; /* Make input take available space */
-  padding: 10px 15px; /* Adjust padding for better spacing */
-  border: none; /* No border to blend in with the search box */
-  border-radius: 5px 0 0 5px; /* Rounded corners only on the left */
-  font-size: 16px; /* Font size for the input */
-}
-
-.search-input:focus {
-  outline: none; /* Remove outline on focus */
-  box-shadow: 0 0 3px #ffcc00; /* Highlight on focus */
-}
-
-.clear-button,
-.voice-search-button {
-  background: transparent; /* Transparent background */
-  border: none; /* No border */
-  padding: 10px; /* Padding for click area */
-  cursor: pointer; /* Pointer cursor */
-  color: #888; /* Icon color */
-  display: flex; /* Center icon vertically */
-  align-items: center; /* Center icon vertically */
-}
-
-.clear-button:hover,
-.voice-search-button:hover {
-  color: #ffcc00; /* Highlight on hover */
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .search-container {
-    flex-direction: row; /* Ensure horizontal alignment */
-    padding: 0 10px; /* Add padding to the container */
-  }
-
-  .search-input {
-    margin-bottom: 0; /* Remove margin bottom */
-    width: 80%; /* Less width on mobile */
-  }
-
-  .clear-button,
-  .voice-search-button {
-    font-size: 18px; /* Smaller buttons */
-    padding: 8px; /* Smaller padding */
-  }
-
-  .voice-search-button {
-    padding: 8px; /* Smaller padding for mobile */
-  }
-  
-}
-
-/* Mobile-first: Show by default */
-.mobile-icons {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  background-color: #f8f9fa; /* Light gray background */
-}
-
-/* Tablet and desktop: Hide .mobile-icons */
-@media (min-width: 769px) {
-  .mobile-icons {
-    display: none;
+    padding: 10px;
   }
 }

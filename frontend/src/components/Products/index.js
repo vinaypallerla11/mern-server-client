@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import ProductItem from '../ProductItem';
 import Navbar from '../Navbar';
 import './index.css';
-import Footer from '../Footer'
+import Footer from '../Footer';
 import { Link } from 'react-router-dom';
-import { FaTimes, FaMicrophone } from 'react-icons/fa'; // Import the microphone icon
+import { FaTimes, FaMicrophone } from 'react-icons/fa'; // Import necessary icons
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -14,10 +14,18 @@ const Products = () => {
 
   useEffect(() => {
     const fetchProducts = async () => {
-      const response = await fetch('https://fakestoreapi.com/products');
-      const data = await response.json();
-      setProducts(data);
-      setLoading(false);
+      try {
+        const response = await fetch('https://fakestoreapi.com/products');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchProducts();
   }, []);
@@ -37,35 +45,33 @@ const Products = () => {
     }
 
     const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-    recognition.continuous = false; // Stop after one result
-    recognition.interimResults = false; // Get only final results
+    recognition.continuous = false;
+    recognition.interimResults = false;
 
     recognition.onstart = () => {
-      setRecognizing(true); // Start recognizing
+      setRecognizing(true);
     };
 
     recognition.onresult = (event) => {
-      const transcript = event.results[0][0].transcript; // Get the speech result
-      setSearchQuery(transcript); // Set the search query to the recognized text
-      setRecognizing(false); // Stop recognizing
+      const transcript = event.results[0][0].transcript;
+      setSearchQuery(transcript);
     };
 
     recognition.onerror = (event) => {
       console.error('Speech recognition error:', event.error);
-      setRecognizing(false); // Stop recognizing
     };
 
     recognition.onend = () => {
-      setRecognizing(false); // Stop recognizing
+      setRecognizing(false);
     };
 
-    recognition.start(); // Start the recognition
+    recognition.start();
   };
 
   if (loading) {
     return (
       <div className="loading-container">
-        <img src="./loading.gif" alt="Loading" className="loading-image" />
+        <div className="loading-spinner"></div>
       </div>
     );
   }
@@ -74,44 +80,57 @@ const Products = () => {
     <div>
       <Navbar />
       <div className='mobile-icons'>
-      <Link to="/"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="home" className='home1'/></Link>
+        <Link to="/"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="home" className='home1'/></Link>
         <Link to="/products"><img src="https://img.favpng.com/6/14/1/marketing-amp-growth-icon-product-icon-png-favpng-qvc19bn2QQpkJVRYZ3cB7WaYR.jpg" alt="product" className='product1'/></Link>
         <Link to="/cart"><img src="https://cdn-icons-png.flaticon.com/512/565/565375.png" alt="cart" className='cart1'/></Link>
       </div>
+
       <div className="search-container">
         <form className="search-form" onSubmit={(e) => e.preventDefault()}>
-          <div className='serch-voice-recognization'>
+          <div className="search-box">
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search for products..."
               className="search-input"
+              aria-label="Search for products"
             />
             {searchQuery && (
-              <button type="button" className="clear-search-button" onClick={handleClearSearch}>
-                <FaTimes />
+              <button
+                type="button"
+                className="clear-search-button"
+                onClick={handleClearSearch}
+                aria-label="Clear search"
+              >
+                <FaTimes aria-hidden="true" />
               </button>
             )}
-          </div>
-          <div className='vinrecognization'>
-            <button type="button" className="voice-search-button" onClick={startVoiceRecognition} disabled={recognizing}>
-              <FaMicrophone />
-            </button>
+            <div className="voice-recognization">
+              <button
+                type="button"
+                className="voice-search-button"
+                onClick={startVoiceRecognition}
+                disabled={recognizing}
+                aria-label="Start voice recognition"
+              >
+                <FaMicrophone aria-hidden="true" />
+              </button>
+            </div>
           </div>
         </form>
       </div>
+
       <div className="products-container">
         {filteredProducts.length > 0 ? (
           filteredProducts.map(product => (
             <ProductItem key={product.id} product={product} />
           ))
-          
         ) : (
           <p>No products found.</p>
         )}
-        <Footer />
       </div>
+      <Footer />
     </div>
   );
 };
