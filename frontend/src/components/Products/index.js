@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ProductItem from '../ProductItem';
 import Navbar from '../Navbar';
 import './index.css';
+import Footer from '../Footer'
+import { Link } from 'react-router-dom';
 import { FaTimes, FaMicrophone } from 'react-icons/fa'; // Import the microphone icon
 
 const Products = () => {
@@ -71,6 +73,11 @@ const Products = () => {
   return (
     <div>
       <Navbar />
+      <div className='mobile-icons'>
+      <Link to="/"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="home" className='home1'/></Link>
+        <Link to="/products"><img src="https://img.favpng.com/6/14/1/marketing-amp-growth-icon-product-icon-png-favpng-qvc19bn2QQpkJVRYZ3cB7WaYR.jpg" alt="product" className='product1'/></Link>
+        <Link to="/cart"><img src="https://cdn-icons-png.flaticon.com/512/565/565375.png" alt="cart" className='cart1'/></Link>
+      </div>
       <div className="search-container">
         <form className="search-form" onSubmit={(e) => e.preventDefault()}>
           <div className='serch-voice-recognization'>
@@ -87,7 +94,7 @@ const Products = () => {
               </button>
             )}
           </div>
-          <div>
+          <div className='vinrecognization'>
             <button type="button" className="voice-search-button" onClick={startVoiceRecognition} disabled={recognizing}>
               <FaMicrophone />
             </button>
@@ -99,9 +106,11 @@ const Products = () => {
           filteredProducts.map(product => (
             <ProductItem key={product.id} product={product} />
           ))
+          
         ) : (
           <p>No products found.</p>
         )}
+        <Footer />
       </div>
     </div>
   );

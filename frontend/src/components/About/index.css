@@ -188,3 +188,19 @@ body {
       font-size: 0.9em;
   }
 }
+
+
+/* Mobile-first: Show by default */
+.mobile-icons {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+/* Tablet and desktop: Hide .mobile-icons */
+@media (min-width: 769px) {
+  .mobile-icons {
+    display: none;
+  }
+}

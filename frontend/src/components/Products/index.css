@@ -282,4 +282,20 @@ footer {
   .voice-search-button {
     padding: 8px; /* Smaller padding for mobile */
   }
+  
+}
+
+/* Mobile-first: Show by default */
+.mobile-icons {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  background-color: #f8f9fa; /* Light gray background */
+}
+
+/* Tablet and desktop: Hide .mobile-icons */
+@media (min-width: 769px) {
+  .mobile-icons {
+    display: none;
+  }
 }
