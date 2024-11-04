@@ -119,3 +119,122 @@ body {
   }
 }
 
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Marquee */
+.marquee-container {
+  background-color: black; /* Background color set to black */
+  padding: 10px 0; /* Padding for top and bottom */
+  overflow: hidden; /* Hide overflow */
+  width: 100%; /* Full width of the container */
+  position: relative; /* Position relative for the scrolling text */
+}
+
+.marquee-text {
+  display: inline-block; /* Inline block for scrolling effect */
+  animation: scroll-left 20s linear infinite; /* Set animation duration */
+  font-size: 18px; /* Base font size */
+  color: white; /* Text color set to white */
+  white-space: nowrap; /* Prevent line breaks */
+  padding-left: 100%; /* Start the text off-screen on the right */
+  /* Adjust to ensure the text starts just outside the viewport */
+}
+
+/* Keyframes for scrolling effect */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0); /* Start fully off-screen to the right */
+  }
+  100% {
+    transform: translateX(-100%); /* End fully off-screen to the left */
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .marquee-text {
+    font-size: 16px; /* Slightly smaller text for tablets */
+    animation: scroll-left 60s linear infinite; /* Adjust speed for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .marquee-text {
+    font-size: 14px; /* Smaller text for mobile */
+    animation: scroll-left 18s linear infinite; /* Adjust speed for mobile */
+  }
+}
+
+/* Marquee */
+.marquee-container {
+  background-color: white !important;
+  padding: 10px 0;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.marquee-text {
+  display: inline-block;
+  animation: scroll-left 30s linear infinite;
+  font-size: 18px;
+  color: black !important; /* Ensure text color is white */
+  white-space: nowrap;
+  padding-left: 100%; /* Start the text off-screen on the right */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .marquee-text {
+    animation: scroll-left 30s linear infinite; /* Slower speed for desktop */
+  }
+}
+
+
+/* Marquee */
+.marquee-container {
+  background-color: black;
+  padding: 10px 0;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.marquee-text {
+  display: inline-block;
+  animation: scroll-left 20s linear infinite;
+  font-size: 18px;
+  color: white;
+  white-space: nowrap;
+  position: relative; /* Ensure relative positioning for smoother animation */
+  left: 100%; /* Start fully off-screen */
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Slower speed for desktop */
+@media (min-width: 1024px) {
+  .marquee-text {
+    animation: scroll-left 30s linear infinite; /* Slower for desktop */
+  }
+}

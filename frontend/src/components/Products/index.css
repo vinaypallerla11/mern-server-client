@@ -17,6 +17,7 @@ body {
   padding: 10px 0;
   overflow: hidden;
   width: 100%;
+  
 }
 
 .marquee-text {
@@ -75,6 +76,7 @@ body {
   padding: 10px;
   cursor: pointer;
   color: #888;
+  padding-top:-5px;
 }
 
 .clear-search-button:hover,
@@ -218,6 +220,9 @@ footer {
   .container {
     padding: 10px;
   }
+  .search-container{
+    max-width: 95%;
+  }
 
   .marquee-text {
     font-size: 16px;
@@ -258,5 +263,31 @@ footer {
 
   .search-input {
     padding: 10px;
+  }
+}
+
+
+/* Marquee */
+.marquee-container {
+  background-color: #221783; 
+  padding: 10px 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-text {
+  display: inline-block;
+  animation: scroll-left 10s linear infinite;
+  font-size: 18px;
+  color: white;
+  white-space: nowrap;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
   }
 }

@@ -85,6 +85,12 @@ const Products = () => {
         <Link to="/cart"><img src="https://cdn-icons-png.flaticon.com/512/565/565375.png" alt="cart" className='cart1'/></Link>
       </div>
 
+      <div className="marquee-container">
+        <div className="marquee-text">
+          Welcome to vinay trendz store! Check out our latest products and deals!
+        </div>
+      </div>
+
       <div className="search-container">
         <form className="search-form" onSubmit={(e) => e.preventDefault()}>
           <div className="search-box">
