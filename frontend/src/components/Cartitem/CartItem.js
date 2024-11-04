@@ -16,8 +16,8 @@ const CartItem = ({ product }) => {
         />
         <div className="cart-item-details">
           <h3>{product.title}</h3>
-          <p>Price: ${product.price.toFixed(2)}</p>
-          <p>Quantity: {product.quantity}</p>
+          <p className='para'>Price: ${product.price.toFixed(2)}</p>
+          <p className='para'>Quantity: {product.quantity}</p>
           <div className="quantity-controls">
             <button 
               onClick={() => decreaseQuantity(product.id)} 

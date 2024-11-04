@@ -1,29 +1,50 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { Link, useNavigate } from 'react-router-dom';
-import NavBar from '../Navbar'; // Import NavBar component
+import Navbar from '../Navbar'; // Import NavBar component
 import './index.css';
 import Footer from '../Footer';
 
 const Home = () => {
   const navigate = useNavigate();
   const jwtToken = Cookies.get('jwt_token');
+  const [showNavBar, setShowNavBar] = useState(true);
+  const [lastScrollTop, setLastScrollTop] = useState(0);
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
     if (!jwtToken) {
       navigate('/login'); // Redirect to login page if user is not authenticated
+      setLoading(false); // Stop loading when navigation occurs
+      return; // Prevent further execution
     }
-  }, [jwtToken, navigate]);
+
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset;
+
+      // Only update the navbar visibility if the scroll distance is significant
+      if (Math.abs(currentScroll - lastScrollTop) > 150) {
+        setShowNavBar(currentScroll <= lastScrollTop || currentScroll <= 0);
+      }
+      setLastScrollTop(currentScroll <= 0 ? 0 : currentScroll); // For Mobile or negative scrolling
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    setLoading(false); // Set loading to false after checking token
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [jwtToken, navigate, lastScrollTop]);
 
   // Prevent rendering while checking authentication
-  if (!jwtToken) {
-    return null;
+  if (loading) {
+    return <div>Loading...</div>; // Optionally add a loading spinner
   }
 
   return (
     <>
-      <NavBar />
-      <div className='homeapp'>
+      {showNavBar && <Navbar />}
+      <main className='homeapp'>
         <div className="home-container">
           <div className="home-content">
             <h1 className="home-heading">Clothes That Get YOU Noticed</h1>
@@ -46,7 +67,7 @@ const Home = () => {
             className="home-desktop-img"
           />
         </div>
-      </div>
+      </main>
       <Footer />
     </>
   );

@@ -7,12 +7,13 @@
   border-radius: 5px;
   background-color: #fff;
   flex-wrap: wrap; /* Allows wrapping on smaller screens */
+  margin: 20px;
 }
 
 .cart-item-image {
-  width: 100px;
-  height: auto;
-  margin-right: 20px;
+  width: 50px;
+  height: 50px;
+  margin-right: 40px;
 }
 
 .cart-item-details {
@@ -28,6 +29,8 @@
 .quantity-controls button {
   padding: 5px 10px;
   margin: 0 5px;
+  height:25px;
+  width:25px
 }
 
 .remove-button {
@@ -37,6 +40,12 @@
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 5px;
+  height:30px;
+  width: 80px;
+  text-align: center;
+}
+.para{
+  color:black;
 }
 
 .remove-button:hover {

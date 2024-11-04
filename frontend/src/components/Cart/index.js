@@ -1,8 +1,7 @@
 import React from 'react';
 import { useCart } from '../../context/CartContext';
 import CartItem from '../Cartitem/CartItem';
-// import NavBar from '../Navbar';
-import { useNavigate } from 'react-router-dom'; // Import navigate for checkout
+import { Link, useNavigate } from 'react-router-dom';
 import './index.css';
 
 const Cart = () => {
@@ -45,6 +44,11 @@ const Cart = () => {
               alt="Empty cart" 
               className="empty-cart-image"
             />
+            <Link to="/products">
+              <button type="button" className="shop-now-button">
+                Shop Now
+              </button>
+            </Link>
           </div>
         )}
       </div>
