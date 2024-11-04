@@ -49,13 +49,6 @@ const Home = () => {
         <Link to="/products"><img src="https://img.favpng.com/6/14/1/marketing-amp-growth-icon-product-icon-png-favpng-qvc19bn2QQpkJVRYZ3cB7WaYR.jpg" alt="product" className='product1'/></Link>
         <Link to="/cart"><img src="https://cdn-icons-png.flaticon.com/512/565/565375.png" alt="cart" className='cart1'/></Link>
       </div>
-      <div className="marquee-container">
-        <div className="marquee-content">
-          <div className="marquee-text">
-            Welcome to our store! Click here to go home!
-          </div>
-        </div>
-      </div>
       <main className='homeapp'>
         <div className="home-container">
           <div className="home-content">
